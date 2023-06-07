@@ -1,5 +1,5 @@
 class QuotesController < ApplicationController
-  before_action :set_quote, only: [:show, :edit, :update, :destroy]
+  before_action :set_quote, only: [:show, :edit, :update, :destroy, :hovercard]
 
   def index
     @quotes = Quote.ordered
@@ -33,6 +33,9 @@ class QuotesController < ApplicationController
     @manu = ["manu", "ferrer"]
   end
 
+  def hovercard
+  end
+
   def update
     @test = "test"
     respond_to do |format|
@@ -61,6 +64,6 @@ class QuotesController < ApplicationController
   end
 
   def quote_params
-    params.require(:quote).permit(:name, :manu)
+    params.require(:quote).permit(:name, :manu, :content)
   end
 end

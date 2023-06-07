@@ -4,5 +4,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root 'quotes#index'
-  resources :quotes
+  resources :quotes do
+    member do
+      get :hovercard
+    end
+  end
+  # get 'quotes/:id/edit', to: 'quotes#edit', as: 'edit_quote'
 end
